@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 25.0.1706.8
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OLE_WEBAPP", "OLE_WEBAPP\OLE_WEBAPP.csproj", "{A5FA5EB6-E6E6-4D3D-91EC-F2C8A6EEFB7F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A5FA5EB6-E6E6-4D3D-91EC-F2C8A6EEFB7F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A5FA5EB6-E6E6-4D3D-91EC-F2C8A6EEFB7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A5FA5EB6-E6E6-4D3D-91EC-F2C8A6EEFB7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A5FA5EB6-E6E6-4D3D-91EC-F2C8A6EEFB7F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4949869A-F90F-4293-A740-8112DAAB6F15}
+	EndGlobalSection
+EndGlobal
