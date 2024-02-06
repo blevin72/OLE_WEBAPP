@@ -1,5 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
+using OLE_WEBAPP.Models;
+using Org.BouncyCastle.Asn1.X509;
 
 namespace OLE_WEBAPP.Data
 {
@@ -13,6 +15,8 @@ namespace OLE_WEBAPP.Data
             optionsBuilder.UseMySql(connectionString, serverVersion);
             base.OnConfiguring(optionsBuilder);
         }
+
+        public DbSet<Accounts> Accounts { get; set; }
     }
 }
 
