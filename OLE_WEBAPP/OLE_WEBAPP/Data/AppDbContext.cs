@@ -16,7 +16,11 @@ namespace OLE_WEBAPP.Data
             base.OnConfiguring(optionsBuilder);
         }
 
-        public DbSet<Accounts> Accounts { get; set; }
+        public DbSet<Account> Accounts { get; set; }
+        public DbSet<Player> Players { get; set; }
+        public DbSet<FriendsList> FriendsList { get; set; }
+        public DbSet<FriendRequest> FriendRequests { get; set; }
+
     }
 }
 
