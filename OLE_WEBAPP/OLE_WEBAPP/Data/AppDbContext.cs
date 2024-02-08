@@ -16,11 +16,25 @@ namespace OLE_WEBAPP.Data
             base.OnConfiguring(optionsBuilder);
         }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            // Configure the relationship between Account and FriendsList
+            modelBuilder.Entity<Account>()
+                .HasMany(a => a.FriendsList1)
+                .WithOne(fl => fl.Account1)
+                .HasForeignKey(fl => fl.Account1Id)
+                .OnDelete(DeleteBehavior.Restrict); // Modify this according to your requirement
+
+            modelBuilder.Entity<Account>()
+                .HasMany(a => a.FriendsList2)
+                .WithOne(fl => fl.Account2)
+                .HasForeignKey(fl => fl.Account2Id)
+                .OnDelete(DeleteBehavior.Restrict); // Modify this according to your requirement
+        }
+
         public DbSet<Account> Accounts { get; set; }
         public DbSet<Player> Players { get; set; }
         public DbSet<FriendsList> FriendsList { get; set; }
         public DbSet<FriendRequest> FriendRequests { get; set; }
-
     }
 }
-
