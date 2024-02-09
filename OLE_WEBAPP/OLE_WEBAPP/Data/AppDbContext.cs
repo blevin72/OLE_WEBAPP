@@ -30,6 +30,19 @@ namespace OLE_WEBAPP.Data
                 .WithOne(fl => fl.Account2)
                 .HasForeignKey(fl => fl.Account2Id)
                 .OnDelete(DeleteBehavior.Restrict); // Modify this according to your requirement
+
+            // Configure the relationship between Account and FriendRequest
+            modelBuilder.Entity<FriendRequest>()
+                .HasOne(fr => fr.Sender)
+                .WithMany(a => a.SentFriendRequests)
+                .HasForeignKey(fr => fr.SenderId)
+                .OnDelete(DeleteBehavior.Restrict); // Modify this according to your requirement
+
+            modelBuilder.Entity<FriendRequest>()
+                .HasOne(fr => fr.Receiver)
+                .WithMany(a => a.ReceivedFriendRequests)
+                .HasForeignKey(fr => fr.ReceiverId)
+                .OnDelete(DeleteBehavior.Restrict); // Modify this according to your requirement
         }
 
         public DbSet<Account> Accounts { get; set; }

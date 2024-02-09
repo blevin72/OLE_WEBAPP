@@ -8,8 +8,10 @@ namespace OLE_WEBAPP.Models
     {
         [Key]
         public int Id { get; set; }
+
         [ForeignKey("Username")]
         public string Username { get; set; }
+
         [ForeignKey("Email")]
         public string Email { get; set; }
 
