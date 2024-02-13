@@ -1,12 +1,13 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace OLE_WEBAPP.Models
 {
 	public class Player
 	{
-		[Key]
-		public int id { get; set; }
+		[ForeignKey("accountID")]
+		public int accountID { get; set; }
 
 		public string FirstName { get; set; }
 
