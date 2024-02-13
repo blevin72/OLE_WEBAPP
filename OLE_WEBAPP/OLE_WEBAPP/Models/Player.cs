@@ -7,7 +7,7 @@ namespace OLE_WEBAPP.Models
 	public class Player
 	{
 		[ForeignKey("accountID")]
-		public int accountID { get; set; }
+		public virtual Account accountID { get; set; }
 
 		public string FirstName { get; set; }
 
