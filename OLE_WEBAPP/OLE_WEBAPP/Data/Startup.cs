@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using OLE_WEBAPP.Data;
 
@@ -13,6 +14,9 @@ public class Startup
 
     public void ConfigureServices(IServiceCollection services)
     {
-        // Add any additional services here if needed
+        // Other ConfigureServices code...
+
+        services.AddDbContext<AppDbContext>(options =>
+            options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
     }
 }

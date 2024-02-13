@@ -60,8 +60,34 @@ namespace OLE_WEBAPP.Controllers
         {
             if (ModelState.IsValid)
             {
+                // Check if the username is already taken
+                if (_context.Accounts.Any(a => a.Username == account.Username))
+                {
+                    ModelState.AddModelError("Username", "Username is already taken.");
+                    return View(account);
+                }
+
+                // Check if the email address is already taken
+                if (_context.Accounts.Any(a => a.Email == account.Email))
+                {
+                    ModelState.AddModelError("Email", "Email address is already taken.");
+                    return View(account);
+                }
+
+                // Hash and salt the password before storing it
+                // (Ensure that your Account model includes properties for Hash and Salt)
+                // You can use a secure hashing algorithm like BCrypt or SHA-256
+                // For example:
+                // account.Hash = HashPassword(account.Password); // Implement this method
+
+                // Set account creation date
+                account.AccountCreationDate = DateTime.UtcNow;
+
+                // Add the new account to the database
                 _context.Add(account);
                 await _context.SaveChangesAsync();
+
+                // Redirect to the login page or any other appropriate action
                 return RedirectToAction(nameof(Index));
             }
             return View(account);
