@@ -10,55 +10,65 @@
     <title>@ViewData["Title"]</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
-        /* Define a CSS class for the container element */
-        .background-container {
+        body {
             /* Set the background image */
             background-image: url('~/images/Our_Final_Epoch_Title_Screen.png');
             /* Set background properties */
             background-size: cover; /* Cover the entire element */
             background-position: center; /* Center the image */
             background-repeat: no-repeat; /* Do not repeat the image */
+            background-color: black;
             /* Set dimensions for the container element */
-            width: 100%; /* Full width */
             height: 100vh; /* Full viewport height */
-            /* Position the container */
-            position: fixed; /* Fixed position so it stays in place */
-            top: 0; /* Align to the top of the viewport */
-            left: 0; /* Align to the left of the viewport */
-            z-index: -1; /* Place the container behind other content */
+            /* Center the background image */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* Add padding to the top to accommodate the navbar */
+            padding-top: 50px;
         }
 
-        /* Additional styling for other content */
-        .content {
-            /* Add padding to ensure content is visible */
-            padding-top: 100px; /* Adjust padding to ensure content is below the background image */
+        /* Styling for the title */
+        #title {
+            color: red; /* Set the font color to red */
+            font-style: oblique;
+            font-size: xx-large;
+            text-align: center;
+        }
+
+        /* Styling for the lead paragraph */
+        .lead {
+            color: orange; /* Set the font color to orange */
+            text-align: center; /* Center the text */
         }
     </style>
 </head>
-<body>
-    <!-- Container for background image -->
-    <div class="background-container"></div>
 
-    <!-- Other content goes here -->
-    <div class="content">
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
         <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <img src="~/images/Our_Final_Epoch_Title_Screen.png" alt="Our Final Epoch Logo" class="img-fluid mx-auto d-block mt-5" style="max-height: 200px;" />
-                </div>
-                <div class="col-md-6">
-                    <div class="text-center mt-5">
-                        <h1 class="display-3">Our Final Epoch</h1>
-                        <p class="lead">A hardcore and realistic online first-person action RPG/Simulator with MMO features and a story-driven walkthrough.</p>
-                        <a href="#" class="btn btn-primary btn-lg">Learn More</a>
-                    </div>
-                </div>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Privacy</a>
+                    </li>
+                </ul>
             </div>
         </div>
+    </nav>
 
-        <!-- Your content here -->
-        <h1>Welcome to Our Website</h1>
-        <p>This is some content on the page.</p>
+    <div>
+        <h1 id="title" class="display-3">Our Final Epoch</h1>
+        <p class="lead">
+            <span style="color:azure">Our Final Epoch</span> thrusts you into a post-apocalyptic world, where survival is not just a goal, but a relentless battle against nature and humanity
+        </p>
+        <a href="#" class="btn btn-primary btn-lg">Learn More</a>
     </div>
 </body>
 </html>
