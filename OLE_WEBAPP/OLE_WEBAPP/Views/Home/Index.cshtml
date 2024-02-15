@@ -30,30 +30,143 @@
 
         /* Styling for the title */
         #title {
-            color: red; /* Set the font color to red */
-            font-style: oblique;
-            font-size: xx-large;
-            text-align: center;
+            color: #8B0000; /* Dark red color for a creepy feel */
+            font-family: 'Creepster', cursive; /* Use a spooky font */
+            font-size: 5em; /* Set the font size to extra large */
+            text-align: center; /* Center the text */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add a subtle shadow for depth */
+            margin-top: 50px; /* Add some top margin */
         }
 
         /* Styling for the lead paragraph */
         .lead {
-            color: orange; /* Set the font color to orange */
+            color: #006400; /* Dark green */
             text-align: center; /* Center the text */
+            font-family: 'Orbitron', sans-serif; /* Use a futuristic font */
+            font-size: 24px; /* Set a larger font size */
+            letter-spacing: 3px; /* Add spacing between letters */
+            line-height: 1.5; /* Increase line height for readability */
+            text-transform: uppercase; /* Convert text to uppercase */
+            margin-top: 30px;
         }
+
+        /* Styling for Nav Bar */
+        .navbar {
+            background-color: transparent;
+            border-bottom: none;
+        }
+
+        .navbar-brand,
+        .navbar-nav .nav-link {
+            font-family: 'Roboto', sans-serif;
+            font-weight: bold;
+            color: white;
+        }
+
+        .navbar-brand {
+            font-size: 24px;
+        }
+
+        .navbar-nav .nav-link {
+            font-size: 18px;
+            padding: 10px 15px;
+        }
+
+            .navbar-nav .nav-link:hover {
+                color: #ffc107;
+            }
+
+        .navbar-nav .nav-item.active .nav-link {
+            color: #ffc107;
+        }
+
+        .dropdown-menu {
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+            .dropdown-menu .dropdown-item {
+                color: white;
+            }
+
+                .dropdown-menu .dropdown-item:hover {
+                    background-color: #ffc107;
+                }
     </style>
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" id="nav">
         <div class="container">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
                         <a class="nav-link" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownLogIn" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Log In
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownLogIn">
+                            <a class="dropdown-item" href="#">Log In</a>
+                            <a class="dropdown-item" href="#">Register</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownNews" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            News
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownNews">
+                            <a class="dropdown-item" href="#">Seasons</a>
+                            <a class="dropdown-item" href="#">Special Events</a>
+                            <a class="dropdown-item" href="#">Patch Updates</a>
+                            <a class="dropdown-item" href="#">Deals</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownForum" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Forum
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownForum">
+                            <a class="dropdown-item" href="#">Existing Post</a>
+                            <a class="dropdown-item" href="#">Create New Post</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMedia" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Media
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMedia">
+                            <a class="dropdown-item" href="#">Trailers</a>
+                            <a class="dropdown-item" href="#">Moment Of The Month</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownRankings" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Rankings
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownRankings">
+                            <a class="dropdown-item" href="#">Select Server</a>
+                            <a class="dropdown-item" href="#">Top 100: All</a>
+                            <a class="dropdown-itme" href="#">Top 25: (Specific)</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownSupport" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Support
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownSupport">
+                            <a class="dropdown-item" href="#">Email</a>
+                            <a class="dropdown-item" href="#">FAQs</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Join Us</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Privacy</a>
@@ -63,12 +176,12 @@
         </div>
     </nav>
 
+
     <div>
         <h1 id="title" class="display-3">Our Final Epoch</h1>
         <p class="lead">
             <span style="color:azure">Our Final Epoch</span> thrusts you into a post-apocalyptic world, where survival is not just a goal, but a relentless battle against nature and humanity
         </p>
-        <a href="#" class="btn btn-primary btn-lg">Learn More</a>
     </div>
 </body>
 </html>
