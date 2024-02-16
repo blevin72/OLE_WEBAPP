@@ -12,11 +12,12 @@
     <style>
         body {
             /* Set the background image */
-            background-image: url('~/images/Our_Final_Epoch_Title_Screen.png');
+            background-image: url('/images/Our_Final_Epoch_Title_Screen.png');
             /* Set background properties */
-            background-size: cover; /* Cover the entire element */
+            background-size: 115%; /* Cover the entire element */
             background-position: center; /* Center the image */
             background-repeat: no-repeat; /* Do not repeat the image */
+            background-blend-mode: inherit;
             background-color: black;
             /* Set dimensions for the container element */
             height: 100vh; /* Full viewport height */
@@ -39,16 +40,40 @@
         }
 
         /* Styling for the lead paragraph */
+        @@keyframes colorChange {
+            0% {
+                color: darkbrown;
+            }
+
+            25% {
+                color: darkred;
+            }
+
+            50% {
+                color: darkorange;
+            }
+
+            75% {
+                color: darkred;
+            }
+
+            100% {
+                color: darkbrown;
+            }
+        }
+
         .lead {
-            color: #006400; /* Dark green */
+            /* Your existing styles */
+            animation: colorChange 10s infinite;
             text-align: center; /* Center the text */
             font-family: 'Orbitron', sans-serif; /* Use a futuristic font */
             font-size: 24px; /* Set a larger font size */
             letter-spacing: 3px; /* Add spacing between letters */
             line-height: 1.5; /* Increase line height for readability */
             text-transform: uppercase; /* Convert text to uppercase */
-            margin-top: 30px;
+            margin-top: 200px;
         }
+
 
         /* Styling for Nav Bar */
         .navbar {
@@ -56,12 +81,19 @@
             border-bottom: none;
         }
 
-        .navbar-brand,
-        .navbar-nav .nav-link {
-            font-family: 'Roboto', sans-serif;
-            font-weight: bold;
-            color: white;
+        .navbar-nav {
+            margin: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
+
+            .navbar-brand,
+            .navbar-nav .nav-link {
+                font-family: 'Roboto', sans-serif;
+                font-weight: bold;
+                color: darkkhaki;
+            }
 
         .navbar-brand {
             font-size: 24px;
@@ -95,7 +127,7 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" id="nav">
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="nav">
         <div class="container">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -153,7 +185,7 @@
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownRankings">
                             <a class="dropdown-item" href="#">Select Server</a>
                             <a class="dropdown-item" href="#">Top 100: All</a>
-                            <a class="dropdown-itme" href="#">Top 25: (Specific)</a>
+                            <a class="dropdown-itme" href="#">Top 25: Specific</a>
                         </div>
                     </li>
                     <li class="nav-item dropdown">
@@ -175,13 +207,13 @@
             </div>
         </div>
     </nav>
-
-
     <div>
-        <h1 id="title" class="display-3">Our Final Epoch</h1>
         <p class="lead">
-            <span style="color:azure">Our Final Epoch</span> thrusts you into a post-apocalyptic world, where survival is not just a goal, but a relentless battle against nature and humanity
+            Thrusted into a post-apocalyptic world, where survival is not just a goal, but a relentless battle against nature and humanity
         </p>
     </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.3/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
