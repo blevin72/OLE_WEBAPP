@@ -25,10 +25,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Remove="Data\" />
+    <None Remove="Views\Log In\" />
+    <None Remove="Views\Forum\" />
+    <None Remove="Views\Media\" />
+    <None Remove="Views\Rankings\" />
+    <None Remove="Views\Support\" />
+    <None Remove="Views\JoinUs\" />
+    <None Remove="Views\Privacy\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Data\" />
     <Folder Include="wwwroot\Images\" />
+    <Folder Include="Views\Log In\" />
+    <Folder Include="Views\Forum\" />
+    <Folder Include="Views\Media\" />
+    <Folder Include="Views\Rankings\" />
+    <Folder Include="Views\Support\" />
+    <Folder Include="Views\JoinUs\" />
+    <Folder Include="Views\Privacy\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\Images\" />
