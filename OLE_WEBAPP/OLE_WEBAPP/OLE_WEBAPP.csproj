@@ -32,6 +32,8 @@
     <None Remove="Views\Support\" />
     <None Remove="Views\JoinUs\" />
     <None Remove="Views\Privacy\" />
+    <None Remove="Views\News\" />
+    <None Remove="Views\About\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Data\" />
@@ -43,6 +45,8 @@
     <Folder Include="Views\Support\" />
     <Folder Include="Views\JoinUs\" />
     <Folder Include="Views\Privacy\" />
+    <Folder Include="Views\News\" />
+    <Folder Include="Views\About\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\Images\" />
