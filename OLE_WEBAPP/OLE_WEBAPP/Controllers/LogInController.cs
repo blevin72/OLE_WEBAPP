@@ -14,6 +14,11 @@ namespace OLE_WEBAPP.Controllers
         {
             return View();
         }
+
+        public IActionResult LogIn()
+        {
+            return View();
+        }
     }
 
 }
