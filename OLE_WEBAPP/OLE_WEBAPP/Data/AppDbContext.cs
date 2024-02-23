@@ -5,8 +5,13 @@ using Org.BouncyCastle.Asn1.X509;
 
 namespace OLE_WEBAPP.Data
 {
-	public class AppDbContext : DbContext
-	{
+    public class AppDbContext : DbContext
+    {
+        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
+        {
+
+        }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             var connectionString = "Server=localhost:8889;Database=UnityAccess;User=root;Password=root";

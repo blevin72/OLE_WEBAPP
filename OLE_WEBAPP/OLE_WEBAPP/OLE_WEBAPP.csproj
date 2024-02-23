@@ -25,8 +25,26 @@
   </ItemGroup>
   <ItemGroup>
     <None Remove="Data\" />
+    <None Remove="Views\Forum\" />
+    <None Remove="Views\Media\" />
+    <None Remove="Views\Rankings\" />
+    <None Remove="Views\Support\" />
+    <None Remove="Views\JoinUs\" />
+    <None Remove="Views\Privacy\" />
+    <None Remove="Views\News\" />
+    <None Remove="Views\About\" />
+    <None Remove="Views\LogIn\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Data\" />
+    <Folder Include="Views\Forum\" />
+    <Folder Include="Views\Media\" />
+    <Folder Include="Views\Rankings\" />
+    <Folder Include="Views\Support\" />
+    <Folder Include="Views\JoinUs\" />
+    <Folder Include="Views\Privacy\" />
+    <Folder Include="Views\News\" />
+    <Folder Include="Views\About\" />
+    <Folder Include="Views\LogIn\" />
   </ItemGroup>
 </Project>
