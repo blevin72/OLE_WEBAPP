@@ -9,10 +9,13 @@ namespace OLE_WEBAPP.Models
         [Key]
         public int Id { get; set; }
 
+        [Required]
         [ForeignKey("Username")]
         public string Username { get; set; }
 
+        [Required]
         [ForeignKey("Email")]
+        [EmailAddress]
         public string Email { get; set; }
 
         public string Hash { get; set; }
