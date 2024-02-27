@@ -14,11 +14,13 @@ namespace OLE_WEBAPP.Controllers
     {
         private readonly AppDbContext _context;
         private readonly SignInManager<Account> _signInManager;
+        private readonly UserManager<Account> _userManager;
 
-        public AccountsController(AppDbContext context, SignInManager<Account> signInManager)
+        public AccountsController(AppDbContext context, SignInManager<Account> signInManager, UserManager<Account> userManager)
         {
             _context = context;
             _signInManager = signInManager;
+            _userManager = userManager;
         }
 
         // GET: Accounts
@@ -133,6 +135,7 @@ namespace OLE_WEBAPP.Controllers
                 var result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, isPersistent: false, lockoutOnFailure: false);
                 if (result.Succeeded)
                 {
+                    TempData["ShowLoginIndicator"] = true;
                     return RedirectToAction("Index", "Home"); // Redirect to the home page after successful login
                 }
                 else
@@ -147,6 +150,31 @@ namespace OLE_WEBAPP.Controllers
         private bool AccountExists(int id)
         {
             return (_context.Accounts?.Any(e => e.Id == id)).GetValueOrDefault();
+        }
+
+        // POST: Accounts/Register
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Register(RegisterViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = new Account { Username = model.Username, Email = model.Email };
+
+                var result = await _userManager.CreateAsync(user, model.Password);
+                if (result.Succeeded)
+                {
+                    await _signInManager.SignInAsync(user, isPersistent: false);
+                    return RedirectToAction("Index", "Home");
+                }
+                foreach (var error in result.Errors)
+                {
+                    ModelState.AddModelError(string.Empty, error.Description);
+                }
+            }
+
+            // If we got this far, something failed, redisplay form
+            return View("Register", model);
         }
     }
 }

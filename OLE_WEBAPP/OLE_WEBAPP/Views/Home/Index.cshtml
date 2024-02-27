@@ -212,8 +212,32 @@
             Thrusted into a post-apocalyptic world, where survival is not just a goal, but a relentless battle against nature and humanity
         </p>
     </div>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <div class="modal fade" id="loginIndicatorModal" tabindex="-1" role="dialog" aria-labelledby="loginIndicatorModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="loginIndicatorModalLabel">Logged In</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>You are now logged in.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.3/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+    $(document).ready(function () {
+        if (@((TempData["ShowLoginIndicator"] != null && (bool)TempData["ShowLoginIndicator"]).ToString().ToLower()))
+        {
+            TempData["ShowLoginIndicator"] = false;
+            $("#loginIndicatorModal").modal("show");
+        }
+    });
+    </script>
 </body>
 </html>
