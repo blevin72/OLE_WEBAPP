@@ -66,12 +66,12 @@
 <body>
     <div class="login-box">
         <h1 style="font-family: 'Creepster'">Register</h1>
-        <form>
-            <input type="text" placeholder="Username" required>
-            <input type="text" placeholder="Email" required>
-            <input type="password" placeholder="Create Password" required>
-            <input type="password" placeholder="Confirm Password" required>
-            <button type="submit">Log In</button>
+        <form method="post">
+            <input type="text" placeholder="Username" name="Username" required>
+            <input type="text" placeholder="Email" name="Email" required>
+            <input type="password" placeholder="Create Password" name="Password" required>
+            <input type="password" placeholder="Confirm Password" name="ConfirmPassword" required>
+            <button type="submit">Register</button>
         </form>
         <div class="btn-container">
             <a href="/" class="btn btn-primary" style="background-color: brown">Back to Home</a>
