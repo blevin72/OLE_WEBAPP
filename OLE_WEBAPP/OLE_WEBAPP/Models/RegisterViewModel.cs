@@ -21,4 +21,3 @@ namespace OLE_WEBAPP.Models
         public string ConfirmPassword { get; set; }
     }
 }
-

@@ -7,27 +7,35 @@ namespace OLE_WEBAPP.Models
     public class Account
     {
         [Key]
+        [Column("id")]
         public int Id { get; set; }
 
         [Required]
         [ForeignKey("Username")]
+        [Column("username")]
         public string Username { get; set; }
 
         [Required]
         [ForeignKey("Email")]
         [EmailAddress]
+        [Column("email")]
         public string Email { get; set; }
 
+        [Column("hash")]
         public string Hash { get; set; }
 
+        [Column("salt")]
         public string Salt { get; set; }
 
+        [Column("account creation date")]
         public DateTime AccountCreationDate { get; set; }
 
+        [Column("last login date")]
         public DateTime LastLoginDate { get; set; }
 
         public enum Status { active, inactive }
 
+        [Column("email_subscription")]
         public int EmailSubscription { get; set; }
 
         // Navigation property for FriendsList

@@ -77,6 +77,12 @@
             <a href="/" class="btn btn-primary" style="background-color: brown">Back to Home</a>
         </div>
     </div>
+    @if (ViewData["RegistrationSuccess"] != null)
+    {
+        <div class="alert alert-success" role="alert">
+            @ViewData["RegistrationSuccess"]
+        </div>
+    }
     <!-- Include any necessary scripts here -->
 </body>
 </html>
