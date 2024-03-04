@@ -19,11 +19,21 @@ public class Startup
     {
         // Other ConfigureServices code...
 
-        services.AddDbContext<AppDbContext>(options =>
-            options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+        var serverVersion = new MySqlServerVersion(new Version(5, 7, 9));
 
-        services.AddIdentity<Account, IdentityRole>()
-            .AddEntityFrameworkStores<AppDbContext>()
-            .AddDefaultTokenProviders();
+        services.AddDbContext<AppDbContext>(options =>
+            options.UseMySql(Configuration.GetConnectionString("DefaultConnection"), serverVersion));
+
+        services.AddIdentity<Account, IdentityRole>(options =>
+        {
+            // Configure password requirements, lockout, etc.
+            options.SignIn.RequireConfirmedAccount = true;
+        })
+        .AddEntityFrameworkStores<AppDbContext>()
+        .AddDefaultTokenProviders();
+
+        services.AddScoped<SignInManager<Account>>();
+
+        services.AddControllersWithViews();
     }
 }

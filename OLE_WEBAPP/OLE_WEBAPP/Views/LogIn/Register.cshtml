@@ -67,6 +67,7 @@
     <div class="login-box">
         <h1 style="font-family: 'Creepster'">Register</h1>
         <form method="post">
+            @Html.AntiForgeryToken()
             <input type="text" placeholder="Username" name="Username" required>
             <input type="text" placeholder="Email" name="Email" required>
             <input type="password" placeholder="Create Password" name="Password" required>

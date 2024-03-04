@@ -173,30 +173,7 @@ namespace OLE_WEBAPP.Controllers
             }
 
             // If the model is not valid, return the view with errors
-            return View("Register", model);
+            return View(model);
         }
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public async Task<IActionResult> Register(RegisterViewModel model)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        var user = new Account { Username = model.Username, Email = model.Email };
-
-        //        var result = await _userManager.CreateAsync(user, model.Password);
-        //        if (result.Succeeded)
-        //        {
-        //            await _signInManager.SignInAsync(user, isPersistent: false);
-        //            TempData["RegistrationSuccess"] = "Registration successful!";
-        //            return RedirectToAction("Index", "Home");
-        //        }
-        //        foreach (var error in result.Errors)
-        //        {
-        //            ModelState.AddModelError(string.Empty, error.Description);
-        //        }
-        //    }
-        //    // If we got this far, something failed, redisplay form
-        //    return View("Register", model);
-        //}
     }
 }

@@ -1,10 +1,11 @@
 ﻿using System;
+using Microsoft.AspNetCore.Identity;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace OLE_WEBAPP.Models
 {
-    public class Account
+    public class Account : IdentityUser
     {
         [Key]
         [Column("id")]

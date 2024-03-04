@@ -1,11 +1,12 @@
 ﻿using System;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using OLE_WEBAPP.Models;
 using Org.BouncyCastle.Asn1.X509;
 
 namespace OLE_WEBAPP.Data
 {
-    public class AppDbContext : DbContext
+    public class AppDbContext : IdentityDbContext<Account>
     {
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {

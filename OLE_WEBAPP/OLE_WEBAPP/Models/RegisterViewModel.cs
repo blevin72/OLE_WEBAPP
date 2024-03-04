@@ -4,18 +4,18 @@ namespace OLE_WEBAPP.Models
 {
 	public class RegisterViewModel
 	{
-        [Required]
+        [Required(ErrorMessage = "Username is required")]
         public string Username { get; set; }
 
-        [Required]
-        [EmailAddress]
+        [Required(ErrorMessage = "Email is required")]
+        [EmailAddress(ErrorMessage = "Invalid email address")]
         public string Email { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Password is required")]
         [DataType(DataType.Password)]
         public string Password { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Confirm Password is required")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         [DataType(DataType.Password)]
         public string ConfirmPassword { get; set; }
