@@ -5,10 +5,9 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace OLE_WEBAPP.Models
 {
+    [Table("accounts")]
     public class Account : IdentityUser
     {
-        [Key]
-        [Column("id")]
         public int Id { get; set; }
 
         [Required]
@@ -28,13 +27,15 @@ namespace OLE_WEBAPP.Models
         [Column("salt")]
         public string Salt { get; set; }
 
-        [Column("account creation date")]
+        [Column(TypeName = "date")]
         public DateTime AccountCreationDate { get; set; }
 
-        [Column("last login date")]
+        [Column(TypeName = "timestamp")]
         public DateTime LastLoginDate { get; set; }
 
-        public enum Status { active, inactive }
+        [Column("status")]
+        public Status AccountStatus { get; set; }
+        public enum Status { Active, Inactive }
 
         [Column("email_subscription")]
         public int EmailSubscription { get; set; }

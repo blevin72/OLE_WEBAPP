@@ -19,7 +19,7 @@ public class Startup
     {
         // Other ConfigureServices code...
 
-        var serverVersion = new MySqlServerVersion(new Version(5, 7, 9));
+        var serverVersion = new MySqlServerVersion(new Version(5, 7, 39));
 
         services.AddDbContext<AppDbContext>(options =>
             options.UseMySql(Configuration.GetConnectionString("DefaultConnection"), serverVersion));
@@ -30,10 +30,11 @@ public class Startup
             options.SignIn.RequireConfirmedAccount = true;
         })
         .AddEntityFrameworkStores<AppDbContext>()
-        .AddDefaultTokenProviders();
+        .AddDefaultTokenProviders()
+        .AddSignInManager<SignInManager<Account>>();
 
         services.AddScoped<SignInManager<Account>>();
 
-        services.AddControllersWithViews();
+        services.AddMvc();
     }
 }

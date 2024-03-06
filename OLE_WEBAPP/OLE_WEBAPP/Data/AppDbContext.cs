@@ -15,10 +15,19 @@ namespace OLE_WEBAPP.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            var connectionString = "Server=localhost:8889;Database=UnityAccess;User=root;Password=root";
+            if (!optionsBuilder.IsConfigured)
+            {
+                var config = new ConfigurationBuilder()
+                    .SetBasePath(Directory.GetCurrentDirectory())
+                    .AddJsonFile("appsettings.json")
+                    .Build();
 
-            var serverVersion = new MySqlServerVersion(new Version(5, 7, 39));
-            optionsBuilder.UseMySql(connectionString, serverVersion);
+                var connectionString = config.GetConnectionString("DefaultConnection");
+
+                var serverVersion = new MySqlServerVersion(new Version(5, 7, 39));
+                optionsBuilder.UseMySql(connectionString, serverVersion);
+            }
+
             base.OnConfiguring(optionsBuilder);
         }
 
@@ -49,6 +58,8 @@ namespace OLE_WEBAPP.Data
                 .WithMany(a => a.ReceivedFriendRequests)
                 .HasForeignKey(fr => fr.ReceiverId)
                 .OnDelete(DeleteBehavior.Restrict); // Modify this according to your requirement
+
+            base.OnModelCreating(modelBuilder);
         }
 
         public DbSet<Account> Accounts { get; set; }

@@ -159,20 +159,31 @@ namespace OLE_WEBAPP.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new Account { Username = model.Username, Email = model.Email };
+                var user = new Account
+                {
+                    Username = model.Username,
+                    Email = model.Email,
+                    AccountCreationDate = DateTime.Now,
+                    LastLoginDate = DateTime.Now,
+                    EmailSubscription = 0
+                };
 
-                // Add the new account to the database
-                _context.Accounts.Add(user);
+                var result = await _userManager.CreateAsync(user, model.Password);
 
-                // Save changes to the database
-                await _context.SaveChangesAsync();
-                TempData["RegistrationSuccess"] = "Registration successful!";
-
-                // Redirect to the home page or another appropriate page
-                return RedirectToAction("Login", "Accounts");
+                if (result.Succeeded)
+                {
+                    TempData["RegistrationSuccess"] = "Registration successful!";
+                    return RedirectToAction("Login", "Accounts");
+                }
+                else
+                {
+                    foreach (var error in result.Errors)
+                    {
+                        ModelState.AddModelError(string.Empty, error.Description);
+                    }
+                }
             }
 
-            // If the model is not valid, return the view with errors
             return View(model);
         }
     }
