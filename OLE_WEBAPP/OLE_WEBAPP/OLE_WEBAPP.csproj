@@ -21,10 +21,11 @@
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="7.0.11" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.15" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="7.0.15" />
-    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.27" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="7.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.2.0" />
     <PackageReference Include="System.Linq" Version="4.3.0" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="7.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="7.0.0" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Data\" />
@@ -37,6 +38,7 @@
     <None Remove="Views\News\" />
     <None Remove="Views\About\" />
     <None Remove="Views\LogIn\" />
+    <None Remove="Interfaces\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Data\" />
@@ -49,5 +51,6 @@
     <Folder Include="Views\News\" />
     <Folder Include="Views\About\" />
     <Folder Include="Views\LogIn\" />
+    <Folder Include="Interfaces\" />
   </ItemGroup>
 </Project>

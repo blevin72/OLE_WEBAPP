@@ -11,12 +11,10 @@ namespace OLE_WEBAPP.Models
         public int Id { get; set; }
 
         [Required]
-        [ForeignKey("Username")]
         [Column("username")]
         public string Username { get; set; }
 
         [Required]
-        [ForeignKey("Email")]
         [EmailAddress]
         [Column("email")]
         public string Email { get; set; }
