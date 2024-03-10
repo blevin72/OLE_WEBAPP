@@ -14,13 +14,13 @@ namespace OLE_WEBAPP.Controllers
             _signInManager = signInManager;
         }
 
-        public IActionResult IndexView()
+        public IActionResult Index()
         {
             return View();
         }
 
         // Login action
-        public IActionResult LoginView()
+        public IActionResult Login()
         {
             return View();
         }

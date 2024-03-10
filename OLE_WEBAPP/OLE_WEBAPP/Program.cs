@@ -13,7 +13,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
-builder.Services.AddDbContext<AppDbContext>(options => options.UseMySql(connectionString, new MySqlServerVersion(ServerVersion.AutoDetect(connectionString))));
+builder.Services.AddDbContext<AppDbContext>(options => options.UseMySql(connectionString, new MySqlServerVersion(new Version(5, 7, 39))));
+
 
 builder.Services.AddIdentity<Account, IdentityRole>(options =>
 {
@@ -32,7 +33,7 @@ builder.Services.ConfigureApplicationCookie(options =>
 {
     options.Cookie.HttpOnly = true;
     options.ExpireTimeSpan = TimeSpan.FromMinutes(30);
-    options.LoginPath = "/LogIn/Login"; // Change this to your login path
+    options.LoginPath = "/Views/LogIn/LogIn"; // Change this to your login path
     options.AccessDeniedPath = "/Home/AccessDenied"; // Change this to your access denied path
     options.SlidingExpiration = true;
 });
