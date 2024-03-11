@@ -11,8 +11,8 @@ namespace OLE_WEBAPP.Models
         public int FriendshipId { get; set; }
 
         // Foreign key properties
-        public int Account1Id { get; set; }
-        public int Account2Id { get; set; }
+        public string Account1Id { get; set; }
+        public string Account2Id { get; set; }
 
         // Navigation properties
         [ForeignKey("Account1Id")]

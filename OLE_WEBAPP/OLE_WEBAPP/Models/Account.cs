@@ -8,6 +8,7 @@ namespace OLE_WEBAPP.Models
     [Table("accounts")]
     public class Account : IdentityUser
     {
+        [Key]
         public int Id { get; set; }
 
         [Required]

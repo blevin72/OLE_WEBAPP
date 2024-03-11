@@ -6,10 +6,9 @@ namespace OLE_WEBAPP.Models
 {
 	public class Player
 	{
-		[ForeignKey("accountID")]
-		public int accountID { get; set; }
+        public int Id { get; set; }
 
-		public string FirstName { get; set; }
+        public string FirstName { get; set; }
 
 		public string LastName { get; set; }
 
@@ -28,5 +27,9 @@ namespace OLE_WEBAPP.Models
 			Russian,
 			Italian
 		}
-	}
+
+        [ForeignKey("AccountId")]
+        public int AccountId { get; set; }
+        public virtual Account Account { get; set; }
+    }
 }

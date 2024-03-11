@@ -39,6 +39,7 @@
     <None Remove="Views\About\" />
     <None Remove="Views\LogIn\" />
     <None Remove="Interfaces\" />
+    <None Remove="Services\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Data\" />
@@ -52,5 +53,6 @@
     <Folder Include="Views\About\" />
     <Folder Include="Views\LogIn\" />
     <Folder Include="Interfaces\" />
+    <Folder Include="Services\" />
   </ItemGroup>
 </Project>

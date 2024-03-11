@@ -36,7 +36,7 @@ namespace OLE_WEBAPP.Controllers
             }
 
             var player = await _context.Players
-                .FirstOrDefaultAsync(m => m.accountID == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
             if (player == null)
             {
                 return NotFound();
@@ -90,7 +90,7 @@ namespace OLE_WEBAPP.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("id,FirstName,LastName,Dob,Avatar")] Player player)
         {
-            if (id != player.accountID)
+            if (id != player.Id)
             {
                 return NotFound();
             }
@@ -104,7 +104,7 @@ namespace OLE_WEBAPP.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!PlayerExists(player.accountID))
+                    if (!PlayerExists(player.Id))
                     {
                         return NotFound();
                     }
@@ -127,7 +127,7 @@ namespace OLE_WEBAPP.Controllers
             }
 
             var player = await _context.Players
-                .FirstOrDefaultAsync(m => m.accountID == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
             if (player == null)
             {
                 return NotFound();
@@ -157,7 +157,7 @@ namespace OLE_WEBAPP.Controllers
 
         private bool PlayerExists(int id)
         {
-          return (_context.Players?.Any(e => e.accountID == id)).GetValueOrDefault();
+          return (_context.Players?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }
