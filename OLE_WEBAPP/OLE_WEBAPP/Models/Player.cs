@@ -4,7 +4,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace OLE_WEBAPP.Models
 {
-	public class Player
+    [Table("players")]
+    public class Player
 	{
         public int Id { get; set; }
 

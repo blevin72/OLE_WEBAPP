@@ -14,6 +14,7 @@ namespace OLE_WEBAPP.Controllers
             _signInManager = signInManager;
         }
 
+        // Manage Account View
         public IActionResult Index()
         {
             return View();
@@ -21,11 +22,6 @@ namespace OLE_WEBAPP.Controllers
 
         // Login action
         public IActionResult Login()
-        {
-            return View();
-        }
-
-        public IActionResult Register()
         {
             return View();
         }

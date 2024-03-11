@@ -12,6 +12,11 @@ public class AccountsController : Controller
         _accountService = accountService;
     }
 
+    public IActionResult Register()
+    {
+        return View();
+    }
+
     [HttpPost]
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> Register(RegisterViewModel model)
