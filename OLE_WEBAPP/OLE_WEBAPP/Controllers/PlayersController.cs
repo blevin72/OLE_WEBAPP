@@ -1,42 +1,36 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using OLE_WEBAPP.Data;
+using OLE_WEBAPP.Interfaces;
 using OLE_WEBAPP.Models;
 
 namespace OLE_WEBAPP.Controllers
 {
     public class PlayersController : Controller
     {
-        private readonly AppDbContext _context;
+        private readonly IPlayerServices _playerServices;
 
-        public PlayersController(AppDbContext context)
+        public PlayersController(IPlayerServices playerServices)
         {
-            _context = context;
+            _playerServices = playerServices;
         }
 
-        // GET: Players
+        // Action method for displaying a list of players
         public async Task<IActionResult> Index()
         {
-              return _context.Players != null ? 
-                          View(await _context.Players.ToListAsync()) :
-                          Problem("Entity set 'AppDbContext.Players'  is null.");
+            var players = await _playerServices.GetAllPlayersAsync();
+            return View(players);
         }
 
-        // GET: Players/Details/5
+        // Action method for displaying details of a player
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.Players == null)
+            if (id == null)
             {
                 return NotFound();
             }
 
-            var player = await _context.Players
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var player = await _playerServices.GetPlayerAsync(id.Value);
             if (player == null)
             {
                 return NotFound();
@@ -45,37 +39,34 @@ namespace OLE_WEBAPP.Controllers
             return View(player);
         }
 
-        // GET: Players/Create
+        // Action method for displaying the player creation form
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Players/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        // Action method for handling the player creation form submission
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("id,FirstName,LastName,Dob,Avatar")] Player player)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(player);
-                await _context.SaveChangesAsync();
+                await _playerServices.CreatePlayerAsync(player);
                 return RedirectToAction(nameof(Index));
             }
             return View(player);
         }
 
-        // GET: Players/Edit/5
+        // Action method for displaying the player edit form
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.Players == null)
+            if (id == null)
             {
                 return NotFound();
             }
 
-            var player = await _context.Players.FindAsync(id);
+            var player = await _playerServices.GetPlayerAsync(id.Value);
             if (player == null)
             {
                 return NotFound();
@@ -83,9 +74,7 @@ namespace OLE_WEBAPP.Controllers
             return View(player);
         }
 
-        // POST: Players/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        // Action method for handling the player edit form submission
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("id,FirstName,LastName,Dob,Avatar")] Player player)
@@ -99,12 +88,11 @@ namespace OLE_WEBAPP.Controllers
             {
                 try
                 {
-                    _context.Update(player);
-                    await _context.SaveChangesAsync();
+                    await _playerServices.UpdatePlayerAsync(id, player);
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!PlayerExists(player.Id))
+                    if (!_playerServices.PlayerExists(id))
                     {
                         return NotFound();
                     }
@@ -118,16 +106,15 @@ namespace OLE_WEBAPP.Controllers
             return View(player);
         }
 
-        // GET: Players/Delete/5
+        // Action method for displaying the player delete confirmation page
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || _context.Players == null)
+            if (id == null)
             {
                 return NotFound();
             }
 
-            var player = await _context.Players
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var player = await _playerServices.GetPlayerAsync(id.Value);
             if (player == null)
             {
                 return NotFound();
@@ -136,28 +123,13 @@ namespace OLE_WEBAPP.Controllers
             return View(player);
         }
 
-        // POST: Players/Delete/5
+        // Action method for handling the player deletion
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (_context.Players == null)
-            {
-                return Problem("Entity set 'AppDbContext.Players'  is null.");
-            }
-            var player = await _context.Players.FindAsync(id);
-            if (player != null)
-            {
-                _context.Players.Remove(player);
-            }
-            
-            await _context.SaveChangesAsync();
+            await _playerServices.DeletePlayerAsync(id);
             return RedirectToAction(nameof(Index));
-        }
-
-        private bool PlayerExists(int id)
-        {
-          return (_context.Players?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }
