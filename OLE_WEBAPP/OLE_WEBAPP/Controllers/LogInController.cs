@@ -16,8 +16,13 @@ namespace OLE_WEBAPP.Controllers
             _loginServices = loginServices;
         }
 
-        // Action method for displaying the login view
-        // GET
+        // GET Action method for displaying the Manage Account view
+        public IActionResult Index()
+        {
+            return View();
+        }
+
+        // GET Action method for displaying the Login view
         public IActionResult Login()
         {
             return View();

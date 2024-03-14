@@ -28,7 +28,9 @@ IdentityConfig.ConfigureIdentity(builder.Services);
 builder.Services.AddScoped<SignInManager<Account>>();
 builder.Services.AddScoped<UserManager<Account>>();
 builder.Services.AddScoped<RoleManager<IdentityRole>>();
-builder.Services.AddScoped<IAccountService, AccountServices>();
+builder.Services.AddScoped<IAccountServices, AccountServices>();
+builder.Services.AddScoped<ILoginServices, LoginServices>();
+builder.Services.AddScoped<IPlayerServices, PlayerServices>();
 
 
 // Add MVC services
