@@ -10,8 +10,8 @@ namespace OLE_WEBAPP.Models
         public int RequestId { get; set; }
 
         // Foreign key properties
-        public string SenderId { get; set; }
-        public string ReceiverId { get; set; }
+        public int SenderId { get; set; }
+        public int ReceiverId { get; set; }
 
         // Navigation properties
         [ForeignKey("SenderId")]
