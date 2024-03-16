@@ -1,30 +1,42 @@
 ﻿using System;
+using Microsoft.AspNetCore.Identity;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace OLE_WEBAPP.Models
 {
-    public class Account
+    [Table("accounts")]
+    public class Account : IdentityUser
     {
         [Key]
         public int Id { get; set; }
 
-        [ForeignKey("Username")]
+        [Required]
+        [Column("username")]
         public string Username { get; set; }
 
-        [ForeignKey("Email")]
+        [Required]
+        [EmailAddress]
+        [Column("email")]
         public string Email { get; set; }
 
+        [Column("hash")]
         public string Hash { get; set; }
 
+        [Column("salt")]
         public string Salt { get; set; }
 
+        [Column(TypeName = "date")]
         public DateTime AccountCreationDate { get; set; }
 
+        [Column(TypeName = "timestamp")]
         public DateTime LastLoginDate { get; set; }
 
-        public enum Status { active, inactive }
+        [Column("status")]
+        public Status AccountStatus { get; set; }
+        public enum Status { Active, Inactive }
 
+        [Column("email_subscription")]
         public int EmailSubscription { get; set; }
 
         // Navigation property for FriendsList

@@ -1,6 +1,6 @@
-﻿@model OLE_WEBAPP.Models.LoginViewModel
+﻿@model OLE_WEBAPP.Models.RegisterViewModel
 @{
-    ViewData["Title"] = "Log In";
+    ViewData["Title"] = "Register";
 }
 
 <!DOCTYPE html>
@@ -66,16 +66,25 @@
 </head>
 <body>
     <div class="login-box">
-        <h1 style="font-family: 'Creepster'">Log In</h1>
-        <form asp-action="Login" asp-controller="LogIn" method="post">
-            <input asp-for="Email" type="text" placeholder="Email" required>
-            <input asp-for="Password" type="password" placeholder="Password" required>
-            <button type="submit">Log In</button>
+        <h1 style="font-family: 'Creepster'">Register</h1>
+        <form method="post" action="@Url.Action("Register", "Accounts")">
+            @Html.AntiForgeryToken()
+            <input type="text" placeholder="Username" name="Username" required>
+            <input type="text" placeholder="Email" name="Email" required>
+            <input type="password" placeholder="Create Password" name="Password" required>
+            <input type="password" placeholder="Confirm Password" name="ConfirmPassword" required>
+            <button type="submit">Register</button>
         </form>
         <div class="btn-container">
             <a href="/" class="btn btn-primary" style="background-color: brown">Back to Home</a>
         </div>
     </div>
+    @if (ViewData["RegistrationSuccess"] != null)
+    {
+        <div class="alert alert-success" role="alert">
+            @ViewData["RegistrationSuccess"]
+        </div>
+    }
     <!-- Include any necessary scripts here -->
 </body>
 </html>

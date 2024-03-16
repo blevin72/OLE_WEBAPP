@@ -14,19 +14,25 @@ namespace OLE_WEBAPP.Controllers
     {
         private readonly AppDbContext _context;
 
+        // Constructor injection for AppDbContext
         public FriendsListController(AppDbContext context)
         {
             _context = context;
         }
 
-        // GET: FriendsList
+        // Action method for displaying the list of friends
         public async Task<IActionResult> Index()
         {
-            var appDbContext = _context.FriendsList.Include(f => f.Account1).Include(f => f.Account2);
-            return View(await appDbContext.ToListAsync());
+            // Retrieve friends list from the database and include related account information
+            var friendsList = await _context.FriendsList
+                .Include(f => f.Account1)
+                .Include(f => f.Account2)
+                .ToListAsync();
+
+            return View(friendsList);
         }
 
-        // GET: FriendsList/Details/5
+        // Action method for displaying details of a specific friendship
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null || _context.FriendsList == null)
@@ -38,6 +44,7 @@ namespace OLE_WEBAPP.Controllers
                 .Include(f => f.Account1)
                 .Include(f => f.Account2)
                 .FirstOrDefaultAsync(m => m.FriendshipId == id);
+
             if (friendsList == null)
             {
                 return NotFound();
@@ -46,33 +53,34 @@ namespace OLE_WEBAPP.Controllers
             return View(friendsList);
         }
 
-        // GET: FriendsList/Create
+        // Action method for displaying the form to create a new friendship
         public IActionResult Create()
         {
+            // Populate dropdown lists with account IDs
             ViewData["Account1Id"] = new SelectList(_context.Accounts, "Id", "Id");
             ViewData["Account2Id"] = new SelectList(_context.Accounts, "Id", "Id");
             return View();
         }
 
-        // POST: FriendsList/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        // POST action method for handling the creation of a new friendship
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("FriendshipId,Account1Id,Account2Id,FriendshipTimeStamp")] FriendsList friendsList)
         {
             if (ModelState.IsValid)
             {
+                // Add the new friendship to the database
                 _context.Add(friendsList);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            // If the model state is not valid, return to the create view with errors
             ViewData["Account1Id"] = new SelectList(_context.Accounts, "Id", "Id", friendsList.Account1Id);
             ViewData["Account2Id"] = new SelectList(_context.Accounts, "Id", "Id", friendsList.Account2Id);
             return View(friendsList);
         }
 
-        // GET: FriendsList/Edit/5
+        // Action method for displaying the form to edit a friendship
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.FriendsList == null)
@@ -85,14 +93,13 @@ namespace OLE_WEBAPP.Controllers
             {
                 return NotFound();
             }
+            // Populate dropdown lists with account IDs
             ViewData["Account1Id"] = new SelectList(_context.Accounts, "Id", "Id", friendsList.Account1Id);
             ViewData["Account2Id"] = new SelectList(_context.Accounts, "Id", "Id", friendsList.Account2Id);
             return View(friendsList);
         }
 
-        // POST: FriendsList/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        // POST action method for handling the editing of a friendship
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("FriendshipId,Account1Id,Account2Id,FriendshipTimeStamp")] FriendsList friendsList)
@@ -106,6 +113,7 @@ namespace OLE_WEBAPP.Controllers
             {
                 try
                 {
+                    // Update the friendship in the database
                     _context.Update(friendsList);
                     await _context.SaveChangesAsync();
                 }
@@ -127,7 +135,7 @@ namespace OLE_WEBAPP.Controllers
             return View(friendsList);
         }
 
-        // GET: FriendsList/Delete/5
+        // Action method for displaying the form to delete a friendship
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.FriendsList == null)
@@ -147,28 +155,29 @@ namespace OLE_WEBAPP.Controllers
             return View(friendsList);
         }
 
-        // POST: FriendsList/Delete/5
+        // POST action method for handling the deletion of a friendship
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             if (_context.FriendsList == null)
             {
-                return Problem("Entity set 'AppDbContext.FriendsList'  is null.");
+                return Problem("Entity set 'AppDbContext.FriendsList' is null.");
             }
             var friendsList = await _context.FriendsList.FindAsync(id);
             if (friendsList != null)
             {
                 _context.FriendsList.Remove(friendsList);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
+        // Helper method to check if a friendship exists
         private bool FriendsListExists(int id)
         {
-          return (_context.FriendsList?.Any(e => e.FriendshipId == id)).GetValueOrDefault();
+            return (_context.FriendsList?.Any(e => e.FriendshipId == id)).GetValueOrDefault();
         }
     }
 }
