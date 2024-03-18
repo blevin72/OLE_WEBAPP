@@ -5,7 +5,7 @@ using OLE_WEBAPP.Models;
 
 namespace OLE_WEBAPP.Data
 {
-    public class AppDbContext : IdentityDbContext<Account>
+    public class AppDbContext : IdentityDbContext<Account, IdentityRole<int>, int, IdentityUserClaim<int>, IdentityUserRole<int>, IdentityUserLogin<int>, IdentityRoleClaim<int>, IdentityUserToken<int>>
     {
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {

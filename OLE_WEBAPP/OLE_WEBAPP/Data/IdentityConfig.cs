@@ -12,7 +12,7 @@ namespace OLE_WEBAPP.Data
         // Configures identity-related services, abstracted data, called in program.cs
         public static void ConfigureIdentity(IServiceCollection services)
         {
-            services.AddIdentity<Account, IdentityRole>(options =>
+            services.AddIdentity<Account, IdentityRole<int>>(options =>
             {
                 // Configure password requirements, lockout, etc.
                 options.SignIn.RequireConfirmedAccount = true;

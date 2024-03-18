@@ -27,10 +27,11 @@ IdentityConfig.ConfigureIdentity(builder.Services);
 // Add scoped services
 builder.Services.AddScoped<SignInManager<Account>>();
 builder.Services.AddScoped<UserManager<Account>>();
-builder.Services.AddScoped<RoleManager<IdentityRole>>();
+builder.Services.AddScoped<RoleManager<IdentityRole<int>>>();
 builder.Services.AddScoped<IAccountServices, AccountServices>();
 builder.Services.AddScoped<ILoginServices, LoginServices>();
 builder.Services.AddScoped<IPlayerServices, PlayerServices>();
+builder.Services.AddScoped<IUserClaimsPrincipalFactory<Account>, CustomClaimsPrincipalFactory>();
 
 
 // Add MVC services

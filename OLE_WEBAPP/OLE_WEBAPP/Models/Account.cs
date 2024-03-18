@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace OLE_WEBAPP.Models
 {
     [Table("accounts")]
-    public class Account : IdentityUser
+    public class Account : IdentityUser<int>
     {
         [Key]
         public int Id { get; set; }
@@ -38,6 +38,10 @@ namespace OLE_WEBAPP.Models
 
         [Column("email_subscription")]
         public int EmailSubscription { get; set; }
+
+        public string ConcurrencyStamp { get; set; }
+
+        public bool EmailConfirmed { get; set; }
 
         // Navigation property for FriendsList
         public virtual ICollection<FriendsList> FriendsList1 { get; set; }
