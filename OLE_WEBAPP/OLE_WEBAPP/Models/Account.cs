@@ -20,8 +20,8 @@ namespace OLE_WEBAPP.Models
         [Column("email")]
         public string Email { get; set; }
 
-        [Column("hash")]
-        public string Hash { get; set; }
+        [Column("PasswordHash")]
+        public string PasswordHash { get; set; }
 
         [Column("salt")]
         public string Salt { get; set; }
@@ -42,6 +42,16 @@ namespace OLE_WEBAPP.Models
         public string ConcurrencyStamp { get; set; }
 
         public bool EmailConfirmed { get; set; }
+
+        public string NormalizedEmail { get; set; }
+
+        public string PhoneNumber { get; set; }
+
+        public override string NormalizedUserName
+        {
+            get => base.NormalizedUserName;
+            set => base.NormalizedUserName = value.ToUpperInvariant();
+        }
 
         // Navigation property for FriendsList
         public virtual ICollection<FriendsList> FriendsList1 { get; set; }
