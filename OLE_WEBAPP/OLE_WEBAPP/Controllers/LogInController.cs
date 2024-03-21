@@ -37,6 +37,7 @@ namespace OLE_WEBAPP.Controllers
             {
                 // Attempt to sign in the user using the provided email and password
                 var result = await _loginServices.SignInAsync(model);
+
                 if (result.Succeeded)
                 {
                     // If login is successful, redirect to the home page
@@ -47,6 +48,7 @@ namespace OLE_WEBAPP.Controllers
                 {
                     // If login fails, display an error message
                     ModelState.AddModelError(string.Empty, "Invalid login attempt");
+                    ViewBag.LoginStatusMessage = "Invalid login attempt. Please check your email and password.";
                     return View(model);
                 }
             }

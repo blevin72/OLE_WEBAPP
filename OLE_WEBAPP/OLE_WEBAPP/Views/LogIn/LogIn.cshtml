@@ -72,6 +72,9 @@
             <input asp-for="Password" type="password" placeholder="Password" required>
             <button type="submit">Log In</button>
         </form>
+        <div id="loginStatusMessage" class="alert alert-danger" style="display:none;">
+            Login Failed
+        </div>
         <div class="btn-container">
             <a href="/" class="btn btn-primary" style="background-color: brown">Back to Home</a>
         </div>

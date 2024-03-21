@@ -8,6 +8,7 @@ namespace OLE_WEBAPP.Services
 	public class LoginServices : ILoginServices
 	{
         private readonly SignInManager<Account> _signInManager;
+
         //constructor injects an instance of SignInManager<Account> ^ for login services
 		public LoginServices(SignInManager<Account> signInManager)
 		{
