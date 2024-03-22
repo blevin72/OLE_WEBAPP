@@ -47,6 +47,12 @@ namespace OLE_WEBAPP.Models
 
         public string PhoneNumber { get; set; }
 
+        public string SecurityStamp { get; set; }
+
+        public bool PhoneNumberConfirmed { get; set; }
+
+        public int TwoFactorEnabled { get; set; }
+
         public override string NormalizedUserName
         {
             get => base.NormalizedUserName;
