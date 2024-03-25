@@ -12,16 +12,81 @@
         body {
             background-image: url('/images/ai-generated-8112801_1280.png');
             background-size: cover; /* Adjust the image size to cover the entire body */
-            /* Add any other background properties here */
+            background-attachment: fixed; /* Fixed background */
+            font-family: Arial, sans-serif; /* Use a rustic font */
+            color: #FAEBD7; /* Set text color to white */
+            margin: 0; /* Remove default margin */
         }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        .divider {
+            border-top: 1px solid #fff; /* Add a rustic divider */
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .ole_text {
+            font-family: creepster;
+            color: darkred;
+            font-size: large;
+        }
+
+        .founder-section {
+            margin-top: 40px;
+        }
+
+            .founder-section h2 {
+                font-size: 24px;
+            }
+
+        .founder-description {
+            margin-top: 10px;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            background-color: #8b0000; /* Rustic red color for button */
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+        }
+
+            .btn:hover {
+                background-color: #4b0000; /* Darker red color on hover */
+            }
     </style>
 </head>
 <body>
-    <div>
-        <!-- Your content goes here -->
+    <div class="container">
         <h1>About</h1>
-        <p>Insert About Us</p>
-        <a href="/" class="btn btn-primary">Back to Home</a>
+        <div class="divider"></div>
+        <p>
+            Welcome to <span class="ole_text">Our Last Epoch</span> In this harsh world, you must navigate dangerous environments, scavenge for resources, and build alliances to survive.
+        </p>
+        <div class="divider"></div>
+        <h2>Key Features:</h2>
+        <ul>
+            <li>Explore vast open-world environments filled with hidden dangers and treasures.</li>
+            <li>Survive against the undead and rival factions.</li>
+            <li>Customize your character and gear to adapt to different challenges.</li>
+            <li>Build and defend your Post from zombie hordes.</li>
+        </ul>
+        <div class="divider"></div>
+        <div class="founder-section">
+            <h2>Meet Our Team</h2>
+            <div class="founder-description">
+                <p>Bryan Levin - Founder - Software Engineer - Lead Game Design and Development.</p>
+                <p>Brandon Levinsky - Founder - Software Engineer - Game Mechanics.</p>
+            </div>
+        </div>
+        <div class="divider"></div>
+        <a href="/" class="btn">Back to Home</a>
     </div>
     <!-- Include any necessary scripts here -->
 </body>
