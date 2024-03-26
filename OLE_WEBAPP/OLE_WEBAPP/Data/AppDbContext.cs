@@ -45,6 +45,7 @@ namespace OLE_WEBAPP.Data
             modelBuilder.Entity<Player>().ToTable("players");
             modelBuilder.Entity<FriendsList>().ToTable("friends_list");
             modelBuilder.Entity<FriendRequest>().ToTable("friend_requests");
+            modelBuilder.Entity<CommunicationRecord>().ToTable("communication_records");
         }
 
         // DbSets for application entities
@@ -52,6 +53,7 @@ namespace OLE_WEBAPP.Data
         public DbSet<Player> Players { get; set; }
         public DbSet<FriendsList> FriendsList { get; set; }
         public DbSet<FriendRequest> FriendRequests { get; set; }
+        public DbSet<CommunicationRecord> CommunicationRecords { get; set; }
     }
 }
 
