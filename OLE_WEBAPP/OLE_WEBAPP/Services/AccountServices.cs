@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using OLE_WEBAPP.Models;
 using OLE_WEBAPP.Interfaces;
@@ -38,7 +39,7 @@ namespace OLE_WEBAPP.Services
         public async Task<IdentityResult> RegisterAsync(RegisterViewModel model)
         {
             // Create a new Account instance from the provided model
-            var user = new Account { Username = model.Email, Email = model.Email };
+            var user = new Account { Username = model.Username, Email = model.Email };
 
             // Attempt to create the user in the database
             var result = await _userManager.CreateAsync(user, model.Password);

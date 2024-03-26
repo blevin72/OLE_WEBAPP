@@ -1,10 +1,11 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using OLE_WEBAPP.Models;
 
 namespace OLE_WEBAPP.Data
 {
-    public class AppDbContext : IdentityDbContext<Account>
+    public class AppDbContext : IdentityDbContext<Account, IdentityRole<int>, int, IdentityUserClaim<int>, IdentityUserRole<int>, IdentityUserLogin<int>, IdentityRoleClaim<int>, IdentityUserToken<int>>
     {
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
@@ -39,6 +40,11 @@ namespace OLE_WEBAPP.Data
                 .OnDelete(DeleteBehavior.Restrict); // Modify this according to your requirement
 
             base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<Account>().ToTable("accounts").HasKey(u => u.Id);
+            modelBuilder.Entity<Player>().ToTable("players");
+            modelBuilder.Entity<FriendsList>().ToTable("friends_list");
+            modelBuilder.Entity<FriendRequest>().ToTable("friend_requests");
         }
 
         // DbSets for application entities
