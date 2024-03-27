@@ -13,15 +13,61 @@
             background-image: url('/images/generated-7566256_1280.jpeg');
             background-size: cover; /* Adjust the image size to cover the entire body */
             /* Add any other background properties here */
+            color: darkred; /* Set text color to white for better visibility */
+            font-family: 'Creepster'
         }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .post-box {
+            background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .post-textarea {
+            width: 100%;
+            height: 200px; /* Set desired height for the textarea */
+            margin-bottom: 10px;
+            resize: vertical; /* Allow vertical resizing */
+            font-family: 'Creepster';
+            color: black; /* Set text color to red for horror effect */
+            background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent white background */
+            border: 2px solid black; /* Black border */
+            border-radius: 5px;
+            padding: 10px;
+        }
+
+        .submit-btn {
+            background-color: brown; /* Dark brown button color */
+            color: white; /* White text color */
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+            .submit-btn:hover {
+                background-color: black; /* Darken button color on hover */
+            }
     </style>
 </head>
 <body>
-    <div>
-        <!-- Your content goes here -->
+    <div class="container">
         <h1>Create a New Post</h1>
-        <p>Insert New Post</p>
-        <a href="/" class="btn btn-primary">Back to Home</a>
+        <div class="post-box">
+            <form method="post" action="#">
+                @Html.AntiForgeryToken()
+                <textarea class="post-textarea" name="PostContent" maxlength="2000" placeholder="Write your post here..." required></textarea>
+                <button type="submit" class="submit-btn">Submit Post</button>
+            </form>
+        </div>
+        <a href="/" class="btn btn-primary" style="background-color: brown">Back to Home</a>
     </div>
     <!-- Include any necessary scripts here -->
 </body>
