@@ -13,7 +13,7 @@
             background-image: url('/images/generated-7566256_1280.jpeg');
             background-size: cover; /* Adjust the image size to cover the entire body */
             /* Add any other background properties here */
-            color: darkred; /* Set text color to white for better visibility */
+            color: darkred;
             font-family: 'Creepster';
         }
 
@@ -46,33 +46,30 @@
             {
                 @foreach (var post in Model.CommunicationRecord)
                 {
-                    if (post != null)
-                    {
-                        <div class="post-container">
-                            <div class="post-header">
-                                @if (!string.IsNullOrEmpty(post.Sender))
-                                {
-                                    <strong>Sender:</strong> @post.Sender <br />
-                                }
-                                @if (!string.IsNullOrEmpty(post.Recipients))
-                                {
-                                    <strong>Recipients:</strong> @post.Recipients <br />
-                                }
-                                @if (!string.IsNullOrEmpty(post.Subject))
-                                {
-                                    <strong>Subject:</strong> @post.Subject <br />
-                                }
-                                @if (post.TimeSent != null)
-                                {
-                                    <strong>Time Sent:</strong> @post.TimeSent.ToString("yyyy-MM-dd HH:mm:ss") <br />
-                                }
-                            </div>
-                            <div class="post-body">
-                                <p>@post.MessageBody</p>
-                                <!-- Add code to display attachments if applicable -->
-                            </div>
+                    <div class="post-container">
+                        <div class="post-header">
+                            @if (!string.IsNullOrEmpty(post.Sender))
+                            {
+                                <strong>Sender:</strong> @post.Sender <br />
+                            }
+                            @if (!string.IsNullOrEmpty(post.Recipients))
+                            {
+                                <strong>Recipients:</strong> @post.Recipients <br />
+                            }
+                            @if (!string.IsNullOrEmpty(post.Subject))
+                            {
+                                <strong>Subject:</strong> @post.Subject <br />
+                            }
+                            @if (post.TimeSent != null)
+                            {
+                                <strong>Time Sent:</strong> @post.TimeSent.ToString("yyyy-MM-dd HH:mm:ss") <br />
+                            }
                         </div>
-                    }
+                        <div class="post-body">
+                            <p>@post.MessageBody</p>
+                            <!-- Add code to display attachments if applicable -->
+                        </div>
+                    </div>
                 }
             }
             else
@@ -80,11 +77,7 @@
                 <p>No existing posts found.</p>
             }
         </div>
-        <a href="/" class="btn btn-primary" style="background-color: brown">Back to Home</a>
+        <a href="/" class="btn btn-primary">Back to Home</a>
     </div>
-
-    <a href="/" class="btn btn-primary" style="background-color: brown">Back to Home</a>
-    </div>
-    <!-- Include any necessary scripts here -->
 </body>
 </html>
