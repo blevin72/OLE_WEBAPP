@@ -10,18 +10,87 @@
     <title>@ViewData["Title"]</title>
     <style>
         body {
-            background-image: url('/images/digital-art-8015896_1280.jpeg');
-            background-size: 100%; /* Adjust the image size to cover the entire body */
-            /* Add any other background properties here */
+            background-image: url('/images/ai-generated-8112801_1280.png');
+            background-size: cover; 
+            background-attachment: fixed; 
+            font-family: Arial, sans-serif; 
+            color: #FAEBD7; 
+            margin: 0; 
         }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        .divider {
+            border-top: 1px solid #fff; 
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .ole_text {
+            font-family: creepster;
+            color: darkred;
+            font-size: large;
+        }
+
+        .faq-section {
+            margin-top: 40px;
+        }
+
+            .faq-section h2 {
+                font-size: 24px;
+            }
+
+        .faq-question {
+            margin-top: 10px;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            background-color: #8b0000; 
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+        }
+
+            .btn:hover {
+                background-color: #4b0000; 
+            }
     </style>
 </head>
 <body>
-    <div>
-        <!-- Your content goes here -->
+    <div class="container">
         <h1>FAQs</h1>
-        <p>Insert FAQs</p>
-        <a href="/" class="btn btn-primary">Back to Home</a>
+        <div class="divider"></div>
+        <div class="faq-section">
+            <h2>Common Questions</h2>
+            <div class="faq-question">
+                <h3>1. How can I survive against the undead?</h3>
+                <p>Answer: You can survive by scavenging for resources, building alliances with other survivors, and fortifying your shelter against zombie attacks.</p>
+            </div>
+            <div class="faq-question">
+                <h3>2. Are there different types of zombies in the game?</h3>
+                <p>Answer: Yes, there are different types of zombies with varying strengths and weaknesses. Some are faster, while others are stronger and more resilient.</p>
+            </div>
+            <div class="faq-question">
+                <h3>3. Can I customize my character?</h3>
+                <p>Answer: Absolutely! You can customize your character's appearance, skills, and gear to adapt to different challenges in the post-apocalyptic world.</p>
+            </div>
+            <div class="faq-question">
+                <h3>4. Is there a crafting system in the game?</h3>
+                <p>Answer: Yes, there is a robust crafting system that allows you to create weapons, tools, and fortifications using materials found in the game world.</p>
+            </div>
+            <div class="faq-question">
+                <h3>5. How can I defend my shelter from zombie hordes?</h3>
+                <p>Answer: You can set up traps, barricades, and recruit other survivors to help defend your shelter against zombie hordes.</p>
+            </div>
+        </div>
+        <div class="divider"></div>
+        <a href="/" class="btn">Back to Home</a>
     </div>
     <!-- Include any necessary scripts here -->
 </body>

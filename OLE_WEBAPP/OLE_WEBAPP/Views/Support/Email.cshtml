@@ -10,19 +10,73 @@
     <title>@ViewData["Title"]</title>
     <style>
         body {
-            background-image: url('/images/digital-art-8015896_1280.jpeg');
-            background-size: 100%; /* Adjust the image size to cover the entire body */
-            /* Add any other background properties here */
+            background-image: url('/images/ai-generated-8112801_1280.png');
+            background-size: cover;
+            background-attachment: fixed;
+            font-family: Arial, sans-serif;
+            color: #FAEBD7;
+            margin: 0;
         }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        .divider {
+            border-top: 1px solid #fff;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .ole_text {
+            font-family: creepster;
+            color: darkred;
+            font-size: large;
+        }
+
+        .contact-info {
+            margin-top: 40px;
+        }
+
+            .contact-info h2 {
+                font-size: 24px;
+            }
+
+        .contact-method {
+            margin-top: 10px;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            background-color: #8b0000;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+        }
+
+            .btn:hover {
+                background-color: #4b0000;
+            }
     </style>
 </head>
 <body>
-    <div>
-        <!-- Your content goes here -->
-        <h1>Email Us</h1>
-        <p>Insert Emails</p>
-        <a href="/" class="btn btn-primary">Back to Home</a>
+    <div class="container">
+        <h1>Email Support</h1>
+        <div class="divider"></div>
+        <div class="contact-info">
+            <h2>Contact Us</h2>
+            <div class="contact-method">
+                <p>Bryan Email:</p>
+                <p>Brandon Email: blevinsky91@gmail.com</p>
+                <p>Phone:</p>
+                <p>Location:</p>
+            </div>
+        </div>
+        <div class="divider"></div>
+        <a href="/" class="btn">Back to Home</a>
     </div>
-    <!-- Include any necessary scripts here -->
 </body>
 </html>

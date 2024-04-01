@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.Reflection.Metadata;
 
 namespace OLE_WEBAPP.Models
 {
@@ -27,7 +28,7 @@ namespace OLE_WEBAPP.Models
         public DateTime TimeSent { get; set; }
 
         // If attachments are stored as byte array in the database
-        // public byte[] Attachments { get; set; }
+        //public Blob Attachments { get; set; }
 
         // If attachments are stored as a separate entity (e.g., Attachments table with a foreign key)
         // public ICollection<Attachment> Attachments { get; set; }
