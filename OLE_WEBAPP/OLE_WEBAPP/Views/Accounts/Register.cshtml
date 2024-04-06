@@ -62,6 +62,19 @@
             .btn-container a {
                 margin-right: 10px; /* Add margin between buttons */
             }
+
+        .btn {
+            padding: 10px 20px;
+            background-color: #8b0000; /* Rustic red color for button */
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+        }
+
+            .btn:hover {
+                background-color: #4b0000; /* Darker red color on hover */
+            }
     </style>
 </head>
 <body>
@@ -76,7 +89,7 @@
             <button type="submit">Register</button>
         </form>
         <div class="btn-container">
-            <a href="/" class="btn btn-primary" style="background-color: brown">Back to Home</a>
+            <a href="/" class="btn">Back to Home</a>
         </div>
     </div>
     @if (ViewData["RegistrationSuccess"] != null)

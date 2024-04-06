@@ -13,7 +13,7 @@
             background-image: url('/images/generated-7566256_1280.jpeg');
             background-size: cover; /* Adjust the image size to cover the entire body */
             /* Add any other background properties here */
-            color: darkred; /* Set text color to white for better visibility */
+            color: #8D4004;
             font-family: 'Creepster';
         }
 
@@ -28,6 +28,7 @@
             border-radius: 8px;
             padding: 20px;
             margin-bottom: 20px;
+            color: lightgray;
         }
 
         .post-text {
@@ -36,40 +37,44 @@
             font-size: 18px;
             line-height: 1.6;
         }
+
+        .btn {
+            padding: 10px 20px;
+            background-color: #8b0000; /* Rustic red color for button */
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+        }
+
+            .btn:hover {
+                background-color: #4b0000; /* Darker red color on hover */
+            }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Existing Posts</h1>
         <div class="post-box">
-            @if (Model.CommunicationRecord != null && Model.CommunicationRecord.Any())
+            @*@if (Model.CommunicationRecord != null && Model.CommunicationRecord.Any())
             {
-                @foreach (var post in Model.CommunicationRecord)
+                foreach (var post in Model.CommunicationRecord)
                 {
-                    if (post != null)
+                    if (post != null) // Check if post is not null
                     {
                         <div class="post-container">
-                            <div class="post-header">
-                                @if (!string.IsNullOrEmpty(post.Sender))
+                            @foreach (var prop in post.GetType().GetProperties())
+                            {
+                                if (prop.Name != "Attachments" && prop.Name != "MessageID")
                                 {
-                                    <strong>Sender:</strong> @post.Sender <br />
+                                    <div class="post-property">
+                                        <strong>@prop.Name:</strong> @prop.GetValue(post) <br />
+                                    </div>
                                 }
-                                @if (!string.IsNullOrEmpty(post.Recipients))
-                                {
-                                    <strong>Recipients:</strong> @post.Recipients <br />
-                                }
-                                @if (!string.IsNullOrEmpty(post.Subject))
-                                {
-                                    <strong>Subject:</strong> @post.Subject <br />
-                                }
-                                @if (post.TimeSent != null)
-                                {
-                                    <strong>Time Sent:</strong> @post.TimeSent.ToString("yyyy-MM-dd HH:mm:ss") <br />
-                                }
-                            </div>
+                            }
                             <div class="post-body">
                                 <p>@post.MessageBody</p>
-                                <!-- Add code to display attachments if applicable -->
+                                 Add code to display attachments if applicable 
                             </div>
                         </div>
                     }
@@ -78,13 +83,10 @@
             else
             {
                 <p>No existing posts found.</p>
-            }
+            }*@
+            There are no existing posts.
         </div>
-        <a href="/" class="btn btn-primary" style="background-color: brown">Back to Home</a>
+        <a href="/" class="btn">Back to Home</a>
     </div>
-
-    <a href="/" class="btn btn-primary" style="background-color: brown">Back to Home</a>
-    </div>
-    <!-- Include any necessary scripts here -->
 </body>
 </html>

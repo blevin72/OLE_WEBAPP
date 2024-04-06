@@ -32,7 +32,7 @@ builder.Services.AddScoped<IAccountServices, AccountServices>();
 builder.Services.AddScoped<ILoginServices, LoginServices>();
 builder.Services.AddScoped<IPlayerServices, PlayerServices>();
 builder.Services.AddScoped<IUserClaimsPrincipalFactory<Account>, CustomClaimsPrincipalFactory>();
-
+builder.Services.AddScoped<IForumServices, ForumServices>();
 
 // Add MVC services
 builder.Services.AddMvc();
