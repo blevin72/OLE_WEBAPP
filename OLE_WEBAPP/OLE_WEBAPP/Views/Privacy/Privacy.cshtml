@@ -1,8 +1,4 @@
-﻿@{
-    ViewData["Title"] = "Privacy";
-}
-
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -14,13 +10,45 @@
             background-size: 100%; /* Adjust the image size to cover the entire body */
             /* Add any other background properties here */
         }
+
+        .privacy-section {
+            margin-bottom: 20px;
+        }
+
+            .privacy-section h2 {
+                margin-bottom: 10px;
+            }
+
+            .privacy-section ul {
+                list-style-type: disc;
+                margin-left: 20px;
+            }
     </style>
 </head>
 <body>
-    <div>
+    <div class="privacy-section" style="color:brown">
         <!-- Your content goes here -->
-        <h1>Privacy</h1>
-        <p>Insert Info</p>
+        <h1>Privacy Policy</h1>
+        <div>
+            <h2>1. Information We Collect</h2>
+            <ul>
+                <li><strong>Personal Information:</strong> We may collect personal information such as your name, email address, age, and other demographic details when you register an account or interact with our services.</li>
+                <li><strong>Device Information:</strong> We automatically collect information about your device, including your IP address, device type, browser type, and operating system.</li>
+                <li><strong>Usage Data:</strong> We collect data about your interactions with our website or games, including gameplay habits, preferences, and session information.</li>
+            </ul>
+        </div>
+        <div>
+            <h2>2. How We Use Your Information</h2>
+            <p>We may use the information we collect for the following purposes:</p>
+            <ul>
+                <li>To provide and personalize our services.</li>
+                <li>To improve and optimize our website and games.</li>
+                <li>To communicate with you, including sending promotional materials and updates.</li>
+                <li>To analyze usage trends and gather demographic information.</li>
+                <li>To comply with legal obligations.</li>
+            </ul>
+        </div>
+        <!-- Add more sections as needed -->
         <a href="/" class="btn btn-primary">Back to Home</a>
     </div>
     <!-- Include any necessary scripts here -->
